@@ -1,0 +1,93 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 17099,
+            "listen": "0.0.0.0",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "b8214fe6-f819-4067-a093-c437f86505a9",       //主ID;
+                        "alterId": 64       //额外ID;
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp",
+                "security": "auto",           //加密方式;
+                "kcpSettings": {
+                    "mtu": 1350,              //最大传输单元;
+                    "tti": 20,                //传输时间间隔,MS;
+                    "uplinkCapacity": 5,      //上行链路容量,MB/S;
+                    "downlinkCapacity": 20,   //下行链路容量,MB/S;
+                    "congestion": false,      //拥塞控制;
+                    "readBufferSize": 2,      //单个连接的读缓冲区大小,MB;
+                    "writeBufferSize": 2,     //单个连接写入缓冲区大仙,MB;
+                    "header": {
+                        "type": "none"          //不伪装;
+                    }
+                }
+            },
+            "tag": "Vmess-CK-IN",
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ],
+    "mux": {
+        "enabled": false,
+        "concurrency": 8
+    },
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            //"port": 18099,
+            //"listen": "192.168.191.230",
+            "settings": {
+                "vnext" : [
+                    {
+                        "users" : [
+                            {
+                                "id" : "a8214fe6-f819-4067-a093-c437f86505a9", //2级代理服务器的UUID;
+                                "alterId" : 64              //和目标服务器保持一致;
+                            }
+                        ],
+                        "address" : "192.168.191.230",    // 目前 v2ray 服务器的ip 地址或域名;
+                        "port" : 18099              // 目标 v2ray 服务器的开放的对外端口;
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp",
+                "security": "auto",           //加密方式;
+                "kcpSettings": {
+                    "mtu": 1350,              //最大传输单元;
+                    "tti": 20,                //传输时间间隔,MS;
+                    "uplinkCapacity": 5,      //上行链路容量,MB/S;
+                    "downlinkCapacity": 20,   //下行链路容量,MB/S;
+                    "congestion": false,      //拥塞控制;
+                    "readBufferSize": 2,      //单个连接的读缓冲区大小,MB;
+                    "writeBufferSize": 2,     //单个连接写入缓冲区大仙,MB;
+                    "header": {
+                        "type": "none"          //不伪装;
+                    }
+                }
+            },
+            "tag": "Vmess-Home-IN",
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ]
+}

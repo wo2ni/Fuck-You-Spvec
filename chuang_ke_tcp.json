@@ -1,0 +1,105 @@
+{
+    "log": {
+        "access": "/home/log/xray-chuangke-tcp.service/access.log",
+        "error": "/home/log/xray-chuangke-tcp.service/error.log",
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 18099,
+            "listen": "0.0.0.0",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "haitao.com"
+                    },
+                    {
+                        "id": "eb25dc99-c2ea-48db-a902-fa8784803ce8",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "litao.com"
+                    },
+                    {
+                        "id": "85522f29-c6f1-4b90-b79f-55a10f1d09cc",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "wangte.com"
+                    },
+                    {
+                        "id": "7349952c-c271-4574-a264-909a962ba6ab",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "guomou.com"
+                    },
+                    {
+                        "id": "46f377e3-13ac-4866-9d06-4b688f5f1a66",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "zhixiong.com"
+                    },
+                    {
+                        "id": "f6a91cc0-309d-437c-8991-119974b4dd01",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "yuanhao.com"
+                    },
+                    {
+                        "id": "a4bf98bb-00d5-48b7-a6bb-fb715fc8bf99",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "renhui.com"
+                    },
+                    {
+                        "id": "2563bacc-d8d2-41ed-9742-4634f28646b4",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "qiaoerkai.com"
+                    },
+                    {
+                        "id": "8d8d505a-43ab-4399-9ebd-629f16ca4b8e",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "liuzhijun.com"
+                    },
+                    {
+                        "id": "1f8456f3-e471-44d9-b783-0b6e5cd96d49",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "xiaoyan.com"
+                    },
+                    {
+                        "id": "1dbf6b62-de01-4844-b9e3-ac0d39573b45",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "mengdan.com"
+                    },
+                    {
+                        "id": "0288d224-783c-4520-ac18-61e94c79b710",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "caijie.com"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "auto"
+            },
+            "tag": "VMESS-TCP-CK-IN"
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
+    ]
+}

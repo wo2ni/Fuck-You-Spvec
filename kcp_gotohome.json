@@ -1,0 +1,67 @@
+{
+    "log": {
+        //"access": "/home/log/xray-chuangke-kcp.service/access.log",
+        //"error": "/home/log/xray-chuangke-kcp.service/error.log",
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 12099,
+            "listen": "0.0.0.0",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",       //主ID;
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "haitao.com"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "kcp",
+                "security": "auto",           //加密方式;
+                "kcpSettings": {
+                    "mtu": 1350,              //最大传输单元;
+                    "tti": 15,                //传输时间间隔,MS;
+                    "uplinkCapacity": 300,      //上行链路容量,MB/S;
+                    "downlinkCapacity": 500,   //下行链路容量,MB/S;
+                    "congestion": true,      //拥塞控制;
+                    "readBufferSize": 3,      //单个连接的读缓冲区大小,MB;
+                    "writeBufferSize": 3,     //单个连接写入缓冲区大仙,MB;
+                    "header": {
+                        "type": "none"          //不伪装;
+                    }
+                }
+            },
+            "tag": "VMESS-KCP-CK-IN"
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol" : "vmess",
+            "settings" : {
+                "vnext" : [
+                    {
+                        "users" : [
+                            {
+                                "id" : "a8214fe6-f819-4067-a093-c437f86505a9",
+                                "alterId": 0,
+                                "level": 0,
+                                "email": "haitao.com"
+                            }
+                        ],
+                        "address" : "192.168.191.73",
+                        "port" : 18099
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none"
+            },
+            "tag": "Vmess-Home-IN"
+        }
+    ]
+}

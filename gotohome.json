@@ -1,0 +1,252 @@
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "listen": "0.0.0.0",
+            "port": 18889,
+            "protocol": "http",
+            "settings": {
+                "allowTransparent": true,
+                "timeout": 300
+            },
+            "sniffing": {
+            },
+            "tag": "Http_IN"
+        },
+        {
+            "listen": "0.0.0.0",
+            "port": 11089,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "ip": "127.0.0.1",
+                "udp": true
+            },
+            "sniffing": {
+            },
+            "tag": "Socks_IN"
+        },
+        {
+            "listen": "0.0.0.0",
+            "port": 17099,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "haitao.com"
+                    },
+                    {
+                        "id": "bf630b77-3e96-4831-a7a5-67e4bf1478a5",
+                        "alterId": 0,
+                        "level": 0,
+                        "email": "meng-dan.com"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "auto"
+            },
+            "tag": "Vmess-CK-IN"
+        }
+    ],
+    "mux": {
+        "enabled": true,
+        "concurrency": 10
+    },
+    "dns": {
+        "servers": [
+            {
+                "address": "8.8.8.8",
+                "address": "1.1.1.1",
+                "address": "8.8.4.4",
+                "domains": [
+                    "geosite:geolocation-!cn"
+                ]
+            },
+            {
+                "address": "223.6.6.6",
+                "domains": [
+                    "geosite:cn"
+                ],
+                "expectIPs": [
+                    "geoip:cn"
+                ]
+            },
+            {
+                "address": "223.5.5.5",
+                "address": "119.29.29.29",
+                "address": "114.114.114.114",
+                "address": "114.114.115.115",
+                "address": "180.76.76.76",
+                "address": "1.2.4.8",
+                "address": "182.254.118.118",
+                "address": "210.2.4.8",
+                "domains": [
+                    "geosite:cn"
+                ]
+            },
+            "localhost"
+        ]
+    },
+    "outbounds": [
+        {
+            "protocol" : "vmess",
+            "settings" : {
+                "vnext" : [
+                    {
+                        "users" : [
+                            {
+                                "id" : "a8214fe6-f819-4067-a093-c437f86505a9",
+                                "alterId": 0,
+                                "level": 0,
+                                "email": "haitao.com"
+                            }
+                        ],
+                        "address" : "raspberry0.zero",
+                        "port" : 18099
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "none"
+            },
+            "tag": "Vmess-Home-IN"
+        },
+        {
+            "protocol": "freedom",
+            "sendThrough": "0.0.0.0",
+            "settings": {
+                "domainStrategy": "AsIs",
+                "redirect": ":0"
+            },
+            "streamSettings": {
+            },
+            "tag": "DIRECT"
+        },
+        {
+            "protocol": "blackhole",
+            "sendThrough": "0.0.0.0",
+            "settings": {
+                "response": {
+                    "type": "none"
+                }
+            },
+            "streamSettings": {
+            },
+            "tag": "BLACKHOLE"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "AsIs",
+        "rules": [
+            {
+                "type": "field",
+                "domain": [
+                    "geosite:category-ads-all"
+                ],
+                "outboundTag": "BLACKHOLE"
+            },
+            {
+                "type": "field",
+                "domain": [
+                    "ponurl.com",
+                    "xnxx.com",
+                    "redtube.com",
+                    "xvideos.com",
+                    "qingse.one",
+                    "9aabs.club",
+                    "uux68.com",
+                    "javhd.com",
+                    "22dy.me",
+                    "theporndude.com",
+                    "141jj.com",
+                    "porndude.p67z.com",
+                    "91porn.com",
+                    "theporndude.com",
+                    "9ast.club",
+                    "mangotporn.com",
+                    "seju8.com",
+                    "thepornmap.com",
+                    "mrporngeek.com",
+                    "fanqianglu.com",
+                    "whichav.video",
+                    "pornsitesnow.com",
+                    "pornsites.xxx",
+                    "hotporn.today",
+                    "seju.app",
+                    "kokqq.com",
+                    "thepornbest.com",
+                    "xhamster.com",
+                    "redhdtube.xxx",
+                    "redtube.zone",
+                    "redtubepornhd.com",
+                    "xbx.mobi",
+                    "thisav.com",
+                    "fuqvids.com",
+                    "relax-porn.com",
+                    "hostiex.com",
+                    "fullporn.online",
+                    "trigglaboratories.com",
+                    "www.epson-drivers-printer.com",
+                    "www.pornlulu.com",
+                    "www.w222588.com",
+                    "red-tube.video",
+                    "sycmtv.com",
+                    "h5.hxcpp69.com",
+                    "h5.hxcpp78.com"
+                ],
+                "outboundTag": "BLACKHOLE"
+            },
+            {
+                "type": "field",
+                "ip": [
+                    "103.39.76.66",
+                    "108.160.165.8",
+                    "66.254.114.41",
+                    "157.240.7.5",
+                    "172.67.214.183",
+                    "104.21.23.247",
+                    "45.114.11.238",
+                    "162.125.2.6",
+                    "69.171.229.73",
+                    "67.228.102.32",
+                    "108.160.170.45"
+                ],
+                "outboundTag": "BLACKHOLE"
+            },
+            {
+                "type": "field",
+                "domain": [
+                    "geosite:geolocation-!cn",
+                    "www.piaoyun.com",
+                    "www.tangrenjie.tv",
+                    "registry.npmjs.org"
+                ],
+                "outboundTag": "PROXY"
+            },
+            {
+                "type": "field",
+                "domain": [
+                    "geosite:cn",
+                    "geoip:private"
+                ],
+                "outboundTag": "DIRECT"
+            },
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:cn",
+                    "geoip:private"
+                ],
+                "outboundTag": "DIRECT"
+            }
+        ]
+    }
+}
