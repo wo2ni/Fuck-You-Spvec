@@ -1,21 +1,19 @@
 {
     "log": {
-        "access": "/home/log/xray-chuangke-kcp.service/access.log",
-        "error": "/home/log/xray-chuangke-kcp.service/error.log",
         "loglevel": "warning"
     },
     "inbounds": [
         {
-            "port": 19099,
+            "port": xxx,
             "listen": "0.0.0.0",
             "protocol": "vmess",
             "settings": {
                 "clients": [
                     {
-                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",       //主ID;
+                        "id": "",
                         "alterId": 0,
                         "level": 0,
-                        "email": "haitao.com"
+                        "email": "xxx.com"
                     }
                 ]
             },
