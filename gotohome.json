@@ -5,7 +5,7 @@
     "inbounds": [
         {
             "listen": "0.0.0.0",
-            "port": 18889,
+            "port": xxxx,
             "protocol": "http",
             "settings": {
                 "allowTransparent": true,
@@ -35,16 +35,16 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",
+                        "id": "xxxxx",
                         "alterId": 0,
                         "level": 0,
-                        "email": "haitao.com"
+                        "email": "xxxx"
                     },
                     {
-                        "id": "bf630b77-3e96-4831-a7a5-67e4bf1478a5",
+                        "id": "xxx",
                         "alterId": 0,
                         "level": 0,
-                        "email": "meng-dan.com"
+                        "email": "xxx"
                     }
                 ]
             },
@@ -102,14 +102,14 @@
                     {
                         "users" : [
                             {
-                                "id" : "a8214fe6-f819-4067-a093-c437f86505a9",
+                                "id" : "xxxxx",
                                 "alterId": 0,
                                 "level": 0,
-                                "email": "haitao.com"
+                                "email": "xxxx"
                             }
                         ],
-                        "address" : "raspberry0.zero",
-                        "port" : 18099
+                        "address" : "2级代理",
+                        "port" : xxxx
                     }
                 ]
             },
@@ -155,6 +155,7 @@
             },
             {
                 "type": "field",
+                //过滤色情网站;
                 "domain": [
                     "ponurl.com",
                     "xnxx.com",
