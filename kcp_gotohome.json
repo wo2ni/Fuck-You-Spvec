@@ -1,7 +1,5 @@
 {
     "log": {
-        //"access": "/home/log/xray-chuangke-kcp.service/access.log",
-        //"error": "/home/log/xray-chuangke-kcp.service/error.log",
         "loglevel": "warning"
     },
     "inbounds": [
@@ -12,10 +10,10 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "3a5dd36e-4961-4daa-b266-f7a36c420878",       //主ID;
+                        "id": "xxx",       //主ID;
                         "alterId": 0,
                         "level": 0,
-                        "email": "haitao.com"
+                        "email": "xxx"
                     }
                 ]
             },
@@ -46,14 +44,14 @@
                     {
                         "users" : [
                             {
-                                "id" : "a8214fe6-f819-4067-a093-c437f86505a9",
+                                "id" : "xxxxx",
                                 "alterId": 0,
                                 "level": 0,
-                                "email": "haitao.com"
+                                "email": "xxxx"
                             }
                         ],
-                        "address" : "192.168.191.73",
-                        "port" : 18099
+                        "address" : "2级代理服务器",
+                        "port" : xxxx
                     }
                 ]
             },
